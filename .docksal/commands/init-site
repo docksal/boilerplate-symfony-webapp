@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+#: exec_target = cli
+
+## Initialize/reinstall site
+##
+## Usage: fin init-site
+
+# Abort if anything fails
+set -e
+
+#-------------------------- Settings --------------------------------
+
+#-------------------------- END: Settings --------------------------------
+
+#-------------------------- Helper functions --------------------------------
+
+# Copy a settings file.
+# Skips if the destination file already exists.
+# @param $1 source file
+# @param $2 destination file
+copy_settings_file()
+{
+	local source="$1"
+	local dest="$2"
+
+	if [[ ! -f $dest ]]; then
+		echo "Copying ${dest}..."
+		cp $source $dest
+	else
+		echo "${dest} already in place."
+	fi
+}
+
+#-------------------------- END: Helper functions --------------------------------
+
+#-------------------------- Functions --------------------------------
+# Composer Install
+composer_install ()
+{
+  cd $PROJECT_ROOT
+  composer global require hirak/prestissimo:^0.3
+  composer install
+}
+
+install_items ()
+{
+  composer_install
+	copy_settings_file ${PROJECT_ROOT}/.docksal/env_docksal ${PROJECT_ROOT}/.env
+}
+#-------------------------- END: Functions --------------------------------
+
+#-------------------------- Execution --------------------------------
+
+mkdir ~/tmp
+install_items
+# Project initialization steps
+#-------------------------- END: Execution --------------------------------

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+#: exec_target = cli
+
+## Run PHP Unit.
+##
+## Usage: fin phpunit [arguments]
+##
+
+# Abort if anything fails
+set -e
+
+cd ${PROJECT_ROOT}
+
+bin/phpunit "$@"
