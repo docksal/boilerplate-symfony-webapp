@@ -39,7 +39,6 @@ copy_settings_file()
 composer_install ()
 {
   cd $PROJECT_ROOT
-  composer global require hirak/prestissimo:^0.3
   composer install
 }
 
