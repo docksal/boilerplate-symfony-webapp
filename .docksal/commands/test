@@ -14,6 +14,4 @@ fi
 
 echo "Testing home page..."
 curl -sL -I http://${VIRTUAL_HOST} | grep "HTTP/1.1 200 OK"
-curl -sL http://${VIRTUAL_HOST} | grep "My Drupal 7 Site"
-echo "Testing login page..."
-curl -sL -I http://${VIRTUAL_HOST}/user/login | grep "HTTP/1.1 200 OK"
+curl -sL http://${VIRTUAL_HOST} | grep "Your application is now ready. You can start working on it"
