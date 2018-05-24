@@ -38,13 +38,13 @@ copy_settings_file()
 # Composer Install
 composer_install ()
 {
-  cd $PROJECT_ROOT
-  composer install
+	cd $PROJECT_ROOT
+	composer --no-interaction install
 }
 
 install_items ()
 {
-  composer_install
+	composer_install
 	copy_settings_file ${PROJECT_ROOT}/.docksal/env_docksal ${PROJECT_ROOT}/.env
 }
 #-------------------------- END: Functions --------------------------------
