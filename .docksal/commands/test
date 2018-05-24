@@ -13,5 +13,5 @@ if [[ "${DEBUG}" != "" ]]; then
 fi
 
 echo "Testing home page..."
-curl -sL -I http://${VIRTUAL_HOST} | grep "HTTP/1.1 200 OK"
+curl -sL -I http://${VIRTUAL_HOST} | grep "HTTP/1.1 404 Not Found"
 curl -sL http://${VIRTUAL_HOST} | grep "Your application is now ready. You can start working on it"
